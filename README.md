@@ -1,3 +1,9 @@
+<div align="center">
+    <h2>
+      <a href="https://github.com/o-henry/steam/wiki">WIKI</a>
+    </h2>
+</div>
+
 <p align="center">
   <samp>
     <br>
@@ -5,11 +11,3 @@
     </br>
   </samp>
 </p>
-
-</br>
-
-<div align="center">
-  <kbd>
-    <a href="https://github.com/o-henry/steam/wiki">DOCS</a>
-  </kbd>
-</div>
