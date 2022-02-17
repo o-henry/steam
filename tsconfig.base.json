@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@src/*": ["apps/steam/src/*"],
+      "@api/*": ["apps/steam/src/api/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
