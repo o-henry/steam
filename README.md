@@ -7,7 +7,7 @@
 <p align="center">
   <samp>
     <br>
-      This project was generated using <kbd>Nx</kbd>
+      This project was generated using <kbd>NestJS</kbd>
     </br>
   </samp>
 </p>
