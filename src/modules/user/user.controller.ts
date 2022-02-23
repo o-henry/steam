@@ -1,25 +1,27 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateUserDto } from './dto/create-user.request.dto';
-import { UserResponse } from './dto/user-response.dto';
+import { create_user_dto } from './dto/create-user.request.dto';
+import { User } from './dto/user-response.dto';
+import { UserService } from './user.service';
 
 @Controller({ path: 'users', version: '1' })
 @ApiTags('users')
 export class UserController {
-  constructor() {}
+  constructor(private userService: UserService) {}
 
   @Post('signup')
-  signup(@Body() createUserDto: CreateUserDto): Promise<void> {
-    return;
+  async signup(@Body() create_user_dto: create_user_dto): Promise<void> {
+    return this.userService.signup(create_user_dto);
   }
 
   @Post('login')
-  login(): Promise<{ token: string }> {
+  async login(): Promise<{ token: string }> {
     return;
   }
 
   @Get(':id')
-  userInfo(): Promise<UserResponse> {
+  async user(@Param('id') id: string): Promise<User> {
+    console.log('id', id);
     return;
   }
 }

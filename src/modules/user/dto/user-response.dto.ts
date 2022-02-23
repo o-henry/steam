@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class UserResponse {
+export class User {
   constructor() {}
 
   @ApiProperty({

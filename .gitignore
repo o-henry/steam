@@ -44,6 +44,6 @@ Thumbs.db
 
 # Config
 env
-env
+*.env
 /env
 .env
