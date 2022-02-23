@@ -2,11 +2,12 @@
  * https://docs.nestjs.com/openapi/introduction
  **/
 
+import { INestApplication } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-export default function swagger(app): void {
+export default function swagger(app: INestApplication): void {
   const options = new DocumentBuilder()
-    .setTitle('Steam API')
+    .setTitle('스팀')
     .setVersion('1.0.0')
     .build();
 

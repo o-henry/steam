@@ -42,7 +42,8 @@ Thumbs.db
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Config
 env
 env
 /env
-
+.env
