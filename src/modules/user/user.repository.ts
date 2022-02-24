@@ -1,7 +1,6 @@
-import { create_user_dto } from './dto/create-user.request.dto';
+import { CreateUserDto } from './dto/create-user.request.dto';
 
 export class UserRepository {
   constructor() {}
-
-  async createUser(create_user_dto: create_user_dto) {}
+  async createUser(create_user_dto: CreateUserDto) {}
 }

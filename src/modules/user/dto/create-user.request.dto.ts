@@ -10,7 +10,7 @@ import {
   MinLength,
 } from 'class-validator';
 
-export class create_user_dto {
+export class CreateUserDto {
   @ApiProperty({
     example: 'TomH',
     description: 'user nickname',
@@ -20,7 +20,7 @@ export class create_user_dto {
   @IsNotEmpty()
   @MinLength(8)
   @MaxLength(20)
-  id: string;
+  readonly id: string;
 
   @ApiProperty({
     example: '1q2w3e4r!Q4X',
@@ -34,7 +34,7 @@ export class create_user_dto {
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message: 'password is too weak',
   })
-  password: string;
+  readonly password: string;
 
   @ApiProperty({
     example: '30',
@@ -42,7 +42,7 @@ export class create_user_dto {
   })
   @IsNumber()
   @Matches(/^[1-9][0-9]?$|^100$/)
-  age: number;
+  readonly age: number;
 
   @ApiProperty({
     example: 'alphabet@gmail.com',
@@ -50,12 +50,12 @@ export class create_user_dto {
   })
   @MaxLength(320)
   @IsEmail()
-  email: string;
+  readonly email: string;
 
   @ApiProperty({
     example: '010-0000-0000',
     description: 'user phone number',
   })
   @IsPhoneNumber()
-  phone: string;
+  readonly phone: string;
 }
