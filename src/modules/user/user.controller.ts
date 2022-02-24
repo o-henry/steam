@@ -5,14 +5,14 @@ import { CreateUserDto } from './dto/create-user.request.dto';
 import { userResponseDto } from './dto/user.response.dto';
 import { UserService } from './user.service';
 
-@Controller({ path: 'users', version: '1' })
 @ApiTags('users')
+@Controller({ path: 'users', version: '1' })
 export class UserController {
   constructor(private user_service: UserService) {}
 
   @Post('signup')
-  async signup(@Body() create_user_dto: CreateUserDto): Promise<void> {
-    return this.user_service.signup(create_user_dto);
+  async sign_up(@Body() create_user_dto: CreateUserDto): Promise<void> {
+    return this.user_service.sign_up(create_user_dto);
   }
 
   @Post('login')

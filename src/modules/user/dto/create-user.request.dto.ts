@@ -18,9 +18,9 @@ export class CreateUserDto {
   })
   @IsString()
   @IsNotEmpty()
-  @MinLength(8)
+  @MinLength(4)
   @MaxLength(20)
-  readonly id: string;
+  readonly username: string;
 
   @ApiProperty({
     example: '1q2w3e4r!Q4X',
@@ -41,7 +41,6 @@ export class CreateUserDto {
     description: 'user age',
   })
   @IsNumber()
-  @Matches(/^[1-9][0-9]?$|^100$/)
   readonly age: number;
 
   @ApiProperty({
@@ -54,8 +53,8 @@ export class CreateUserDto {
 
   @ApiProperty({
     example: '010-0000-0000',
-    description: 'user phone number',
+    description: 'user (KR) phone number',
   })
-  @IsPhoneNumber()
+  @IsPhoneNumber('KR')
   readonly phone: string;
 }
