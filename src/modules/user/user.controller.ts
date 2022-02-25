@@ -9,7 +9,6 @@ import { UserService } from './user.service';
 import { AuthService } from '@modules/auth/auth.service';
 @ApiTags('users')
 @Controller({ path: 'users', version: '1' })
-@UseGuards(AuthGuard()) // request with jwt -> guard: check the authorization -> Route Handler
 export class UserController {
   constructor(
     private user_service: UserService,
@@ -28,8 +27,9 @@ export class UserController {
     return this.auth_service.login(login_user_dto);
   }
 
+  @UseGuards(AuthGuard()) // request with jwt -> guard: check the authorization -> Route Handler
   @Get(':id')
-  async user(@Param('id') id: string): Promise<userResponseDto> {
+  async user_info(@Param('id') id: string): Promise<userResponseDto> {
     console.log('id', id);
     return;
   }
