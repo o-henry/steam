@@ -18,12 +18,12 @@ import { JwtStrategy } from '@modules/middleware/jwt.strategy';
       useFactory: async (config_service: ConfigService) => ({
         secret: config_service.get('JWT_SECRET'),
         signOptions: {
-          expiresIn: 36000,
+          expiresIn: 3600,
         },
       }),
     }),
   ],
   providers: [AuthService, JwtStrategy],
-  exports: [AuthService, JwtStrategy],
+  exports: [AuthService, JwtStrategy, PassportModule],
 })
 export class AuthModule {}

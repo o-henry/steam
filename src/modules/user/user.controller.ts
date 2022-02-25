@@ -1,14 +1,15 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthService } from '../auth/auth.service';
 
 import { CreateUserDto } from './dto/create-user.request.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { userResponseDto } from './dto/user.response.dto';
 import { UserService } from './user.service';
-
+import { AuthService } from '@modules/auth/auth.service';
 @ApiTags('users')
 @Controller({ path: 'users', version: '1' })
+@UseGuards(AuthGuard()) // request with jwt -> guard: check the authorization -> Route Handler
 export class UserController {
   constructor(
     private user_service: UserService,
