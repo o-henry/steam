@@ -3,6 +3,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from '../auth/auth.service';
 
 import { CreateUserDto } from './dto/create-user.request.dto';
+import { LoginUserDto } from './dto/login-user.dto';
 import { userResponseDto } from './dto/user.response.dto';
 import { UserService } from './user.service';
 
@@ -21,9 +22,9 @@ export class UserController {
 
   @Post('login')
   async login(
-    @Body() create_user_dto: CreateUserDto,
+    @Body() login_user_dto: LoginUserDto,
   ): Promise<{ token: string }> {
-    return this.auth_service.login(create_user_dto);
+    return this.auth_service.login(login_user_dto);
   }
 
   @Get(':id')
