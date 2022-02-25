@@ -2,11 +2,12 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 
-import { CreateUserDto } from './dto/create-user.request.dto';
-import { LoginUserDto } from './dto/login-user.dto';
-import { userResponseDto } from './dto/user.response.dto';
+import { User } from './user.entity';
 import { UserService } from './user.service';
 import { AuthService } from '@modules/auth/auth.service';
+import { CreateUserDto } from './dto/create-user.request.dto';
+import { LoginUserDto } from './dto/login-user.dto';
+import { GetUser } from './decorator/get-user.decorator';
 @ApiTags('users')
 @Controller({ path: 'users', version: '1' })
 export class UserController {
@@ -29,8 +30,7 @@ export class UserController {
 
   @UseGuards(AuthGuard()) // request with jwt -> guard: check the authorization -> Route Handler
   @Get(':id')
-  async user_info(@Param('id') id: string): Promise<userResponseDto> {
-    console.log('id', id);
-    return;
+  async user_info(@Param('id') id: string): Promise<User> {
+    return this.user_service.getUserById(id);
   }
 }

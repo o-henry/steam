@@ -13,7 +13,7 @@ import {
 export class CreateUserDto {
   @ApiProperty({
     example: 'TomH',
-    description: 'user nickname',
+    description: 'service user id',
     required: true,
   })
   @IsString()

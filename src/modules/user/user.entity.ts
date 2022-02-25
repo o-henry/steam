@@ -5,6 +5,7 @@ export class User extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  /* username is service's user id */
   @Column({ unique: true })
   username: string;
 
