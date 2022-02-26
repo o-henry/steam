@@ -31,6 +31,6 @@ export class UserController {
   @UseGuards(AuthGuard()) // request with jwt -> guard: check the authorization -> Route Handler
   @Get(':id')
   async user_info(@Param('id') id: string): Promise<User> {
-    return this.user_service.getUserById(id);
+    return this.user_service.get_user(id);
   }
 }

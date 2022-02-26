@@ -16,11 +16,7 @@ export class UserService {
     return this.user_repository.create_user(create_user_dto);
   }
 
-  async getUserById(id: string): Promise<User> {
-    const found = await this.user_repository.findOne({
-      where: { username: id },
-    });
-    if (!found) throw new NotFoundException(`Task with ID "${id}" not found`);
-    return found;
+  async get_user(id: string): Promise<User> {
+    return this.user_repository.find_user(id);
   }
 }
