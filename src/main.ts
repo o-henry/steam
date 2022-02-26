@@ -1,20 +1,11 @@
 import { Logger, ValidationPipe, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import * as dotenv from 'dotenv';
-import * as path from 'path';
 
 import { AppModule } from './app.module';
-import swagger from '@src/docs';
+import dot_env from './config/dotenv.config';
+import swagger from './config/swagger.config';
 
-dotenv.config({
-  path: path.resolve(
-    process.env.NODE_ENV === 'production'
-      ? 'env.prod'
-      : process.env.NODE_ENV === 'stage'
-      ? '.env.stage'
-      : '.env.dev',
-  ),
-});
+dot_env();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
