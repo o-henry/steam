@@ -32,11 +32,4 @@ export class UserRepository extends Repository<User> {
       }
     }
   }
-
-  // !fix do not return the password and id
-  async find_user(id: string): Promise<User> {
-    const found = await this.findOne({ where: { username: id } });
-    if (!found) throw new NotFoundException(`User with ID "${id}" not found`);
-    return found;
-  }
 }

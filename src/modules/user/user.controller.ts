@@ -8,6 +8,7 @@ import { AuthService } from '@modules/auth/auth.service';
 import { CreateUserDto } from './dto/create-user.request.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { GetUser } from './decorator/get-user.decorator';
+import { UserResponseDto } from './dto/user.response.dto';
 @ApiTags('users')
 @Controller({ path: 'users', version: '1' })
 export class UserController {
@@ -17,20 +18,18 @@ export class UserController {
   ) {}
 
   @Post('signup')
-  async sign_up(@Body() create_user_dto: CreateUserDto): Promise<void> {
+  sign_up(@Body() create_user_dto: CreateUserDto): Promise<void> {
     return this.user_service.sign_up(create_user_dto);
   }
 
   @Post('login')
-  async login(
-    @Body() login_user_dto: LoginUserDto,
-  ): Promise<{ token: string }> {
+  login(@Body() login_user_dto: LoginUserDto): Promise<{ token: string }> {
     return this.auth_service.login(login_user_dto);
   }
 
   @UseGuards(AuthGuard()) // request with jwt -> guard: check the authorization -> Route Handler
   @Get(':id')
-  async user_info(@Param('id') id: string): Promise<User> {
+  user_info(@Param('id') id: string): Promise<UserResponseDto> {
     return this.user_service.get_user(id);
   }
 }
