@@ -15,7 +15,6 @@ export class UserService {
     return this.user_repository.create_user(create_user_dto);
   }
 
-  // !fix do not return the password and id
   async get_user(id: string): Promise<UserResponseDto> {
     const user = await this.user_repository.findOne({
       where: { username: id },

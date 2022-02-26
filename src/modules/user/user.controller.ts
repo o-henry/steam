@@ -2,12 +2,10 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 
-import { User } from './user.entity';
 import { UserService } from './user.service';
 import { AuthService } from '@modules/auth/auth.service';
 import { CreateUserDto } from './dto/create-user.request.dto';
 import { LoginUserDto } from './dto/login-user.dto';
-import { GetUser } from './decorator/get-user.decorator';
 import { UserResponseDto } from './dto/user.response.dto';
 @ApiTags('users')
 @Controller({ path: 'users', version: '1' })
