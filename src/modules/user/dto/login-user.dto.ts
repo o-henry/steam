@@ -17,7 +17,7 @@ export class LoginUserDto {
   @IsNotEmpty()
   @MinLength(4)
   @MaxLength(20)
-  username: string;
+  readonly username: string;
 
   @ApiProperty({
     example: '1q2w3e4r!Q4X',
@@ -31,5 +31,5 @@ export class LoginUserDto {
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
     message: 'password is too weak',
   })
-  password: string;
+  readonly password: string;
 }

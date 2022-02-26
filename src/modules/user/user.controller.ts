@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 
 import { UserService } from './user.service';
-import { AuthService } from '@modules/auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { CreateUserDto } from './dto/create-user.request.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { UserResponseDto } from './dto/user.response.dto';
