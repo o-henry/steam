@@ -5,7 +5,7 @@ import {
 import { EntityRepository, Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 
-import { User } from './user.entity';
+import { User } from './model/user.entity';
 import { CreateUserDto } from './dto/create-user.request.dto';
 import { PostgresError } from '../error/postgres.error';
 
