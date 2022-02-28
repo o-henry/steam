@@ -18,14 +18,17 @@ export class UserService {
   async get_user(id: string): Promise<UserResponseDto> {
     const user = await this.user_repository.findOne({
       where: { username: id },
+      select: ['username', 'age', 'email', 'phone'],
     });
     if (!user) throw new NotFoundException(`User with ID "${id}" not found`);
+    return user;
+  }
 
-    return {
-      username: user.username,
-      age: user.age,
-      email: user.email,
-      phone: user.phone,
-    };
+  async get_users(): Promise<UserResponseDto[]> {
+    const users = await this.user_repository.find({
+      select: ['username', 'age', 'email', 'phone'],
+    });
+    if (!users) throw new NotFoundException(`User not found`);
+    return users;
   }
 }
