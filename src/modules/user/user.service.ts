@@ -26,7 +26,7 @@ export class UserService {
 
   async get_users(): Promise<UserResponseDto[]> {
     const users = await this.user_repository.find({
-      select: ['username', 'age', 'email', 'phone'],
+      select: ['username', 'age', 'email', 'phone', 'role'],
     });
     if (!users) throw new NotFoundException(`User not found`);
     return users;
