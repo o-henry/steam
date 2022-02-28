@@ -42,8 +42,8 @@ export class UserController {
    * user can get only his information.
    */
 
-  // @Roles(Role.ADMIN)
-  // @UseGuards(AuthGuard(), RoleGuard)
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard(), RoleGuard)
   @Get()
   get_users(): Promise<UserResponseDto[]> {
     return this.user_service.get_users();
