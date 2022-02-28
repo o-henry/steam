@@ -36,12 +36,8 @@ export class UserController {
   }
 
   /**
-   * user - publisher, admin, user
-   * publisher can get user who buy the game.
-   * admin can get user who have signed up for steam service.
-   * user can get only his information.
+   * admin can get users who have signed up for steam service.
    */
-
   @Roles(Role.ADMIN)
   @UseGuards(AuthGuard(), RoleGuard)
   @Get()
