@@ -12,7 +12,9 @@ export class GameService {
     private game_repository: GameRepository,
   ) {}
 
-  async upload(upload_game_dto: UploadGameDto): Promise<void> {}
+  async upload(upload_game_dto: UploadGameDto): Promise<void> {
+    return this.game_repository.create_game(upload_game_dto);
+  }
 
   async get_games(): Promise<GameResponseDto[]> {
     const games = await this.game_repository.find();

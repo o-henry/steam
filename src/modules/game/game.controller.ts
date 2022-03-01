@@ -19,9 +19,6 @@ export class GameController {
     return this.game_service.get_games();
   }
 
-  /**
-   * only publisher can upload games through fs
-   */
   @Roles(Role.PUBLISHER)
   @UseGuards(AuthGuard(), RoleGuard)
   @Post()
