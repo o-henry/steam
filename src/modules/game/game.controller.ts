@@ -1,6 +1,10 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 
+import { Role } from '../user/model/role.enum';
+import { Roles } from '../user/decorator/role.decorator';
+import { RoleGuard } from '../user/guard/role.guard';
 import { GameService } from './game.service';
 import { GameResponseDto } from './dto/game.response.dto';
 import { UploadGameDto } from './dto/upload-game.request.dto';
@@ -18,6 +22,8 @@ export class GameController {
   /**
    * only publisher can upload games through fs
    */
+  @Roles(Role.PUBLISHER)
+  @UseGuards(AuthGuard(), RoleGuard)
   @Post()
   upload(@Body() upload_game_dto: UploadGameDto): Promise<void> {
     return this.game_service.upload(upload_game_dto);
