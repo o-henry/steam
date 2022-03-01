@@ -1,6 +1,5 @@
+import { IsNotEmpty, IsNumber, IsString, IsUrl } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsDate, IsNotEmpty, IsNumber, IsString, IsUrl } from 'class-validator';
-import { string } from 'fp-ts';
 
 export class UploadGameDto {
   @ApiProperty({
@@ -32,6 +31,11 @@ export class UploadGameDto {
   @IsString()
   @IsUrl()
   readonly url: string;
+
+  @ApiProperty({
+    description: 'game data',
+  })
+  readonly data: Buffer;
 
   @ApiProperty({
     example: 'nintendo',
