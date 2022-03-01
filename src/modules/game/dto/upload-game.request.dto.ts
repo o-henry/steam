@@ -32,10 +32,10 @@ export class UploadGameDto {
   @IsUrl()
   readonly url: string;
 
-  @ApiProperty({
-    description: 'game data',
-  })
-  readonly data: Buffer;
+  // @ApiProperty({
+  //   description: 'game data',
+  // })
+  // readonly data: Buffer;
 
   @ApiProperty({
     example: 'nintendo',

@@ -2,10 +2,7 @@ import { Logger, ValidationPipe, VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
-import dot_env from './config/dotenv.config';
 import swagger from './config/swagger.config';
-
-dot_env();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

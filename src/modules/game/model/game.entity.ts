@@ -30,8 +30,9 @@ export class Game extends BaseEntity {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @Column({ type: 'bytea' })
-  data: Buffer;
+  // @Column({ type: 'bytea' })
+  // data: Buffer;
+
   // fk
   @Column()
   publisher: string;
