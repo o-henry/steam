@@ -27,7 +27,7 @@ export class UserRepository extends Repository<User> {
       await this.save(user);
     } catch (error) {
       if (
-        error.code === PostgresError.UniqueViolation ||
+        error.code === PostgresError.UNIQUE_VIOLATION ||
         MysqlError.ER_DUP_ENTRY
       ) {
         throw new ConflictException('Existing username');
