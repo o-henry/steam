@@ -11,7 +11,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER $$POSTGRES_DB"]
     env_file:
-    - .env
+    - .env.docker
     networks:
     - postgres
  
@@ -26,7 +26,7 @@ services:
     volumes:
     -  /var/lib/postgresql/data
     env_file:
-    - .env
+    - .env.docker
     networks:
     - postgres
  
