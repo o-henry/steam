@@ -1,4 +1,11 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  BaseEntity,
+  CreateDateColumn,
+  UpdateDateColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'game' })
 export class Game extends BaseEntity {
@@ -6,7 +13,7 @@ export class Game extends BaseEntity {
   id: string;
 
   @Column({ unique: true })
-  name: string;
+  gamename: string;
 
   @Column()
   price: number;
@@ -17,10 +24,10 @@ export class Game extends BaseEntity {
   @Column()
   url: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date;
 
-  @Column()
+  @UpdateDateColumn()
   updated_at: Date;
 
   // fk

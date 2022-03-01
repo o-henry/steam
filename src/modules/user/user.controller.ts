@@ -2,15 +2,19 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 
-import { UserService } from './user.service';
-import { LoginUserDto } from './dto/login-user.dto';
-import { CreateUserDto } from './dto/create-user.request.dto';
-import { UserResponseDto } from './dto/user.response.dto';
-import { AuthService } from '../auth/auth.service';
 import { Role } from './model/role.enum';
 import { Roles } from './decorator/role.decorator';
 import { RoleGuard } from './guard/role.guard';
+import { UserService } from './user.service';
+import { AuthService } from '../auth/auth.service';
+import { LoginUserDto } from './dto/login-user.dto';
+import { CreateUserDto } from './dto/create-user.request.dto';
+import { UserResponseDto } from './dto/user.response.dto';
 
+/**
+ * user - admin, user, publisher
+ * api 분할의 장단점
+ */
 @ApiTags('users')
 @Controller({ path: 'users', version: '1' })
 export class UserController {
