@@ -1,0 +1,39 @@
+version: "3.5"
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest 
+    ports:
+    - "5432:5432"
+    restart: always
+    volumes:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER $$POSTGRES_DB"]
+    env_file:
+    - .env
+    networks:
+    - postgres
+ 
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    links:
+    - postgres:postgres
+    ports:
+    - "8080:80"
+    restart: unless-stopped
+    volumes:
+    -  /var/lib/postgresql/data
+    env_file:
+    - .env
+    networks:
+    - postgres
+ 
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
