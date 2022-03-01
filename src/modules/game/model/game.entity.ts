@@ -1,3 +1,4 @@
+import { File } from '@src/modules/fs/model/fs.entity';
 import {
   Column,
   Entity,
@@ -5,6 +6,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
+  JoinColumn,
+  OneToOne,
 } from 'typeorm';
 
 @Entity({ name: 'game' })
@@ -29,6 +32,13 @@ export class Game extends BaseEntity {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @JoinColumn({ name: 'file_id' })
+  @OneToOne(() => File, { nullable: true })
+  file?: File;
+
+  @Column({ nullable: true })
+  file_id: number;
 
   // fk
   @Column()
