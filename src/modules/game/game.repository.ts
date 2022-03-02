@@ -14,14 +14,13 @@ export class GameRepository extends Repository<Game> {
       user,
     });
 
-    // try {
-    console.log('game', game);
-    await this.save(game);
-    return game;
-    // }
-
-    // catch (error) {
-    //   throw new InternalServerErrorException({ message: 'fail to save' });
-    // }
+    try {
+      await this.save(game);
+      return game;
+    } catch (error) {
+      throw new InternalServerErrorException({
+        message: 'Fail to save the game',
+      });
+    }
   }
 }
