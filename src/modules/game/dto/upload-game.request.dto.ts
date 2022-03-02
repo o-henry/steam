@@ -18,7 +18,7 @@ export class UploadGameDto {
   readonly price: number;
 
   @ApiProperty({
-    example: 4.5,
+    example: 5,
     description: 'game rate',
   })
   @IsNumber()

@@ -7,17 +7,21 @@ import { UploadGameDto } from './dto/upload-game.request.dto';
 
 @EntityRepository(Game)
 export class GameRepository extends Repository<Game> {
-  async create_game(upload_game_dto: UploadGameDto, user: User): Promise<void> {
+  async create_game(upload_game_dto: UploadGameDto, user: User): Promise<Game> {
     const { ...payload } = upload_game_dto;
     const game = this.create({
       ...payload,
       user,
     });
 
-    try {
-      await this.save(game);
-    } catch (error) {
-      throw new InternalServerErrorException();
-    }
+    // try {
+    console.log('game', game);
+    await this.save(game);
+    return game;
+    // }
+
+    // catch (error) {
+    //   throw new InternalServerErrorException({ message: 'fail to save' });
+    // }
   }
 }

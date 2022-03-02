@@ -10,6 +10,7 @@ import { User } from '../user/model/user.entity';
 import { GetUser } from '../user/decorator/user.decorator';
 import { GameResponseDto } from './dto/game.response.dto';
 import { UploadGameDto } from './dto/upload-game.request.dto';
+import { Game } from './model/game.entity';
 
 @ApiTags('games')
 @Controller({ path: 'games', version: '1' })
@@ -27,7 +28,7 @@ export class GameController {
   upload(
     @Body() upload_game_dto: UploadGameDto,
     @GetUser() user: User,
-  ): Promise<void> {
+  ): Promise<Game> {
     return this.game_service.upload(upload_game_dto, user);
   }
 }

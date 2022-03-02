@@ -5,6 +5,7 @@ import { GameRepository } from './game.repository';
 import { GameResponseDto } from './dto/game.response.dto';
 import { UploadGameDto } from './dto/upload-game.request.dto';
 import { User } from '../user/model/user.entity';
+import { Game } from './model/game.entity';
 
 @Injectable()
 export class GameService {
@@ -13,7 +14,7 @@ export class GameService {
     private game_repository: GameRepository,
   ) {}
 
-  async upload(upload_game_dto: UploadGameDto, user: User): Promise<void> {
+  async upload(upload_game_dto: UploadGameDto, user: User): Promise<Game> {
     return this.game_repository.create_game(upload_game_dto, user);
   }
 
