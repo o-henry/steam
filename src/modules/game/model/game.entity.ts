@@ -1,17 +1,16 @@
 import {
   Column,
   Entity,
+  OneToMany,
+  ManyToOne,
   BaseEntity,
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToOne,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
-
-import { Order } from 'src/modules/order/model/order.entity';
 import { User } from 'src/modules/user/model/user.entity';
+import { Order } from 'src/modules/order/model/order.entity';
 
 @Entity({ name: 'game' })
 export class Game extends BaseEntity {
@@ -29,6 +28,9 @@ export class Game extends BaseEntity {
 
   @Column()
   url: string;
+
+  @Column()
+  publisher: string;
 
   @CreateDateColumn()
   created_at: Date;
