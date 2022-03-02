@@ -8,6 +8,7 @@ import {
   OneToMany,
   ManyToOne,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 import { Order } from 'src/modules/order/model/order.entity';
 import { Publisher } from 'src/modules/user/model/publisher.entity';
@@ -39,10 +40,12 @@ export class Game extends BaseEntity {
   // data: Buffer;
 
   @OneToMany((_type) => Order, (order) => order.game, { eager: true })
+  @Exclude()
   orders: Order[];
 
   @ManyToOne((_type) => Publisher, (pub) => pub.games, {
     eager: false,
   })
-  publisher: string;
+  @Exclude()
+  publisher: Publisher;
 }

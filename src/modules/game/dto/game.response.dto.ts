@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Publisher } from 'src/modules/user/model/publisher.entity';
 
 export class GameResponseDto {
   @ApiProperty({
@@ -29,7 +30,7 @@ export class GameResponseDto {
     example: 'nintendo',
     description: 'game maker',
   })
-  readonly publisher: string;
+  readonly publisher: Publisher;
 
   @ApiProperty({
     example: '2022-02-22',

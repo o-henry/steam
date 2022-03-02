@@ -9,6 +9,7 @@ export function PgOrmConfig(): TypeOrmModuleOptions {
     password: process.env.DATABASE_PASSWORD,
     database: 'steam',
     autoLoadEntities: true,
+    entities: ['dist/**/*.entity{.ts,.js}'],
     synchronize: Boolean(process.env.DATABASE_SYNCHRONIZE), // do not use production -- db is always initialized.
   };
 }
