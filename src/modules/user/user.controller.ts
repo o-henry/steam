@@ -35,8 +35,8 @@ export class UserController {
 
   @UseGuards(AuthGuard()) // request with jwt -> guard: check the authorization -> access
   @Get(':id')
-  get_user(@Param('id') id: string): Promise<UserResponseDto> {
-    return this.user_service.get_user(id);
+  get_user(@Param('id') username: string): Promise<UserResponseDto> {
+    return this.user_service.get_user(username);
   }
 
   /**

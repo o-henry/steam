@@ -20,7 +20,7 @@ import { HealthModule } from './modules/health/health.module';
           : '.env.dev',
     }),
     TypeOrmModule.forRoot(SqlOrmConfig()),
-    // TypeOrmModule.forRoot(PgOrmConfig),
+    TypeOrmModule.forRoot(PgOrmConfig()),
     UserModule,
     GameModule,
     HealthModule,
