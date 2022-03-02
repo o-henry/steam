@@ -5,7 +5,12 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToOne,
 } from 'typeorm';
+
+import { Order } from 'src/modules/order/model/order.entity';
+import { Publisher } from 'src/modules/user/model/publisher.entity';
 
 @Entity({ name: 'game' })
 export class Game extends BaseEntity {
@@ -33,7 +38,11 @@ export class Game extends BaseEntity {
   // @Column({ type: 'bytea' })
   // data: Buffer;
 
-  // fk
-  @Column()
+  @OneToMany((_type) => Order, (order) => order.game, { eager: true })
+  orders: Order[];
+
+  @ManyToOne((_type) => Publisher, (pub) => pub.games, {
+    eager: false,
+  })
   publisher: string;
 }
