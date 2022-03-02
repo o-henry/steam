@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { GameRepository } from './game.repository';
 import { GameResponseDto } from './dto/game.response.dto';
 import { UploadGameDto } from './dto/upload-game.request.dto';
-import { Publisher } from '../user/model/publisher.entity';
+import { User } from '../user/model/user.entity';
 
 @Injectable()
 export class GameService {
@@ -13,8 +13,8 @@ export class GameService {
     private game_repository: GameRepository,
   ) {}
 
-  async upload(upload_game_dto: UploadGameDto, pub: Publisher): Promise<void> {
-    return this.game_repository.create_game(upload_game_dto, pub);
+  async upload(upload_game_dto: UploadGameDto, user: User): Promise<void> {
+    return this.game_repository.create_game(upload_game_dto, user);
   }
 
   async get_games(): Promise<GameResponseDto[]> {

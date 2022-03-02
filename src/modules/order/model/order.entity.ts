@@ -16,11 +16,11 @@ export class Order extends BaseEntity {
   id: string;
 
   @ManyToOne((_type) => User, (user) => user.orders, { eager: false })
-  @Exclude()
+  @Exclude({ toPlainOnly: true })
   user: User;
 
   @ManyToOne((_type) => Game, (game) => game.orders, { eager: false })
-  @Exclude()
+  @Exclude({ toPlainOnly: true })
   game: Game;
 
   @CreateDateColumn()

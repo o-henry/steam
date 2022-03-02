@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Publisher } from 'src/modules/user/model/publisher.entity';
+import { User } from 'src/modules/user/model/user.entity';
 
 export class GameResponseDto {
   @ApiProperty({
@@ -30,7 +30,7 @@ export class GameResponseDto {
     example: 'nintendo',
     description: 'game maker',
   })
-  readonly publisher: Publisher;
+  readonly user: User;
 
   @ApiProperty({
     example: '2022-02-22',

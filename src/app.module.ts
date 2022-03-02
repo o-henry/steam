@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 
 import { PgOrmConfig } from './config/orm-pg.config';
-import { SqlOrmConfig } from './config/orm-sql.config';
 import { GameModule } from './modules/game/game.module';
 import { UserModule } from './modules/user/user.module';
 import { HealthModule } from './modules/health/health.module';
@@ -19,7 +18,6 @@ import { HealthModule } from './modules/health/health.module';
           ? '.env.stage'
           : '.env.dev',
     }),
-    TypeOrmModule.forRoot(SqlOrmConfig()),
     TypeOrmModule.forRoot(PgOrmConfig()),
     UserModule,
     GameModule,

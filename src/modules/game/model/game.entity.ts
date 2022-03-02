@@ -11,7 +11,7 @@ import {
 import { Exclude } from 'class-transformer';
 
 import { Order } from 'src/modules/order/model/order.entity';
-import { Publisher } from 'src/modules/user/model/publisher.entity';
+import { User } from 'src/modules/user/model/user.entity';
 
 @Entity({ name: 'game' })
 export class Game extends BaseEntity {
@@ -40,12 +40,10 @@ export class Game extends BaseEntity {
   // data: Buffer;
 
   @OneToMany((_type) => Order, (order) => order.game, { eager: true })
-  @Exclude()
+  @Exclude({ toPlainOnly: true })
   orders: Order[];
 
-  @ManyToOne((_type) => Publisher, (pub) => pub.games, {
-    eager: false,
-  })
-  @Exclude()
-  publisher: Publisher;
+  @ManyToOne((_type) => User, (user) => user.games, { eager: false })
+  @Exclude({ toPlainOnly: true })
+  user: User;
 }

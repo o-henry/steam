@@ -6,8 +6,8 @@ import { GameService } from './game.service';
 import { Role } from '../user/model/role.enum';
 import { Roles } from '../user/decorator/role.decorator';
 import { RoleGuard } from '../user/guard/role.guard';
-import { Publisher } from '../user/model/publisher.entity';
-import { GetPublisher } from '../user/decorator/pub.decorator';
+import { User } from '../user/model/user.entity';
+import { GetUser } from '../user/decorator/user.decorator';
 import { GameResponseDto } from './dto/game.response.dto';
 import { UploadGameDto } from './dto/upload-game.request.dto';
 
@@ -26,8 +26,8 @@ export class GameController {
   @Post()
   upload(
     @Body() upload_game_dto: UploadGameDto,
-    @GetPublisher() pub: Publisher,
+    @GetUser() user: User,
   ): Promise<void> {
-    return this.game_service.upload(upload_game_dto, pub);
+    return this.game_service.upload(upload_game_dto, user);
   }
 }
