@@ -1,0 +1,44 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.search games": 1,
+      "vusers.created": 1,
+      "http.requests": 1,
+      "errors.EPROTO": 1,
+      "vusers.failed": 1
+    },
+    "histograms": {},
+    "rates": {
+      "http.request_rate": 1
+    },
+    "http.request_rate": null,
+    "firstCounterAt": 1646190794075,
+    "lastCounterAt": 1646190794097,
+    "firstMetricAt": 1646190794075,
+    "lastMetricAt": 1646190794097,
+    "period": 1646190790000,
+    "summaries": {}
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.search games": 1,
+        "vusers.created": 1,
+        "http.requests": 1,
+        "errors.EPROTO": 1,
+        "vusers.failed": 1
+      },
+      "histograms": {},
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1646190794075,
+      "lastCounterAt": 1646190794097,
+      "firstMetricAt": 1646190794075,
+      "lastMetricAt": 1646190794097,
+      "period": "1646190790000",
+      "summaries": {}
+    }
+  ]
+}

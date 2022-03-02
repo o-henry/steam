@@ -1,0 +1,23 @@
+config:
+  target: 'https://localhost:3333/v1'
+  phase:
+    - duration: 30
+      arrivalRate: 5
+      name: warm up
+    - duration: 30
+      arrivalRate: 5
+      rampTo: 50
+      name: ramp up load
+    - duration: 60
+      arrivalRate: 150
+      name: sustained load
+scenarios:
+  - name: "search games"
+    flow:
+      - get: 
+          url: "/games"
+          # capture:
+          #   - json: "$.results[0].id"
+
+
+  
